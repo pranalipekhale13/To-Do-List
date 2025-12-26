@@ -65,6 +65,17 @@
             width: 30px;
             cursor: pointer;
         }
+        #clear-btn{
+            display: block;
+            margin: 30px auto;
+            padding: 10px 50px;
+            border-radius: 20px;
+            font-size: 16px;
+            border: none;
+            background-color: #3e8e42;
+            color: white;
+            cursor: pointer;
+        }
         @media screen  and (max-width: 600px) {
             #todo-input {
                 width: 80%;
@@ -89,6 +100,7 @@
         <button id="add-btn" onclick="addTodoItem()">Add Task</button>
      </div>
       <div id="todo-items-container"></div>
+      <button id="clear-btn" onclick="clearAllTodoItems()">Clear All Tasks</button>
      <script>
         const todoItems = ["Wake up early", "Exercise for 15 minutes"," Study for 1 hour", "Practice coding questions"];
 
@@ -116,6 +128,10 @@
             }
         function deleteTodoItem(index) {
             todoItems.splice(index, 1);
+            displayTodoItems();
+        }
+        function clearAllTodoItems() {
+            todoItems.length = 0;
             displayTodoItems();
         }
     </script>
