@@ -56,6 +56,14 @@
             width: 40%;
             border-radius: 10px;
             font-size: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .delete-btn{
+            height: 30px;
+            width: 30px;
+            cursor: pointer;
         }
         </style>
 </head>
@@ -77,7 +85,8 @@
             todoItemsContainer.innerHTML = "";
 
             for(let i = 0; i < todoItems.length; i++) {
-                todoItemsContainer.innerHTML += `<div class="todo-item">${todoItems[i]}</div>`;
+                todoItemsContainer.innerHTML += `<div class="todo-item">${todoItems[i]}
+                    <img src="delete.png" onclick="deleteTodoItem(${i})" class="delete-btn" alt="Delete"></div>`;
             }
    
         }
@@ -93,6 +102,10 @@
           todoInput.value = "";
           displayTodoItems();
             }
+        function deleteTodoItem(index) {
+            todoItems.splice(index, 1);
+            displayTodoItems();
+        }
     </script>
 
 </body>
