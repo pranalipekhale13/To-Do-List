@@ -81,6 +81,18 @@
             }
    
         }
+         displayTodoItems();
+        function addTodoItem() {
+            const todoInput = document.getElementById("todo-input");
+            const newtodoitem = todoInput.value;
+            if(!newtodoitem.trim()) {
+                alert("Please enter a valid task.");
+                return;
+            } 
+          todoItems.push(newtodoitem);
+          todoInput.value = "";
+          displayTodoItems();
+            }
         
     </script>
 
